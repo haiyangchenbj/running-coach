@@ -14,7 +14,7 @@
 - < 60 min: water is enough
 - 60-90 min: carbs 30-60 g/hr (gel / chews)
 - > 90 min or hot: carbs 60-90 g/hr + electrolytes (sodium 500-700 mg/hr)
-- Caffeine: 3 mg/kg 45-60 min before (boosts endurance)
+- Caffeine: 3 mg/kg 45-60 min before (boosts endurance) — only if already tolerated in training; skip or reduce if: heart arrhythmia / cardiac conditions, uncontrolled hypertension, caffeine sensitivity, anxiety or sleep disorders, pregnancy, or any medication that interacts with stimulants. When in doubt, start at ≤ 1-2 mg/kg or race without it.
 - Sip every 15-20 min; don't wait for thirst
 
 ## Rules
