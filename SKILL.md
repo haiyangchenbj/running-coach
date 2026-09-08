@@ -4,7 +4,7 @@ displayName: "running-coach"
 name: running-coach
 description: Running coach for endurance athletes training with Garmin, Strava, Coros, or Apple Watch. Provides VDOT-based pace zones, session analysis from training screenshots, weekly and periodized season plans (5K through marathon), race strategy, load monitoring via HRV/recovery metrics, injury risk screening, and strength/nutrition guidance grounded in Jack Daniels and Pfitzinger methodology.
 description_zh: "跑步教练：面向耐力跑者（配合 Garmin/Strava/Coros/Apple Watch），提供 VDOT 配速区间、训练截图课次分析、周期化赛季计划（5K 至马拉松）、比赛策略、HRV 负荷监控、伤病风险筛查及力量营养指导，基于 Daniels 与 Pfitzinger 方法论。"
-version: "1.2.7"
+version: "1.2.8"
 read_when:
   - "User shares a training screenshot from a GPS watch or running app (detail page, progress report, or training calendar) and requests session analysis"
   - "User requests a training plan, weekly schedule, or workout recommendation for a specific race distance (5K to marathon)"
