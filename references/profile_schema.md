@@ -2,6 +2,8 @@
 
 This skill reads physiological parameters from `~/.workbuddy/running-coach/profile.json`. On first use (or if missing) it guides the user to create it. The values below are **generic placeholders, not real data** — only to show the format.
 
+> **Sensitive data note:** Physiological and health-related fields (heart rate, lactate threshold, injury history) are sensitive personal data. Providing them is **optional** — they only personalize pacing and risk screening, the skill works without them. All data stays in the local file on your machine; the skill never transmits it anywhere. Skip any question you prefer not to answer.
+
 ```json
 {
   "weight_kg": 65,
@@ -53,6 +55,9 @@ This skill reads physiological parameters from `~/.workbuddy/running-coach/profi
 - **history.injuries**: past injury list, used for Route E risk context.
 
 ## Setup questions (when profile.json missing)
+
+All questions are optional — answer only what you are comfortable sharing; sensitive items (HR thresholds, injury history) can be skipped or filled later.
+
 1. Age, resting HR, measured/estimated max HR
 2. Lactate threshold (HR / pace / power, if known)
 3. PBs per distance (5k / 10k / half / full)
