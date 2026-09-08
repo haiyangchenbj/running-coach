@@ -1,5 +1,7 @@
 # Injury Assessment Decision Tree
 
+> **Disclaimer:** This decision tree is general training information only — it is not medical advice and not a substitute for professional diagnosis. When in doubt, see a doctor.
+
 ## Red Flags → Advise Medical Consultation
 
 Any of these = stop running, see a doctor:
