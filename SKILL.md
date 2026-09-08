@@ -1,15 +1,22 @@
 ---
+slug: "running-coach"
+displayName: "running-coach"
 name: running-coach
 description: Running coach for endurance athletes training with Garmin, Strava, Coros, or Apple Watch. Provides VDOT-based pace zones, session analysis from training screenshots, weekly and periodized season plans (5K through marathon), race strategy, load monitoring via HRV/recovery metrics, injury risk screening, and strength/nutrition guidance grounded in Jack Daniels and Pfitzinger methodology.
-version: 1.2.0
+description_zh: "跑步教练：面向耐力跑者（配合 Garmin/Strava/Coros/Apple Watch），提供 VDOT 配速区间、训练截图课次分析、周期化赛季计划（5K 至马拉松）、比赛策略、HRV 负荷监控、伤病风险筛查及力量营养指导，基于 Daniels 与 Pfitzinger 方法论。"
+version: "1.2.6"
 read_when:
-  - User shares a training screenshot from a GPS watch or running app (detail page, progress report, or training calendar)
-  - User requests a training plan, weekly schedule, or workout recommendation
-  - User asks about pace calculation, goal pacing, or fitness level estimation from a recent race result
-  - User wants post-race analysis or pre-race strategy guidance
-  - User asks about warm-up routines, strength training, nutrition, recovery, heart-rate zones, running form, injury symptoms, or gear
-  - User discusses race preparation, season goals, or training periodization for distances from 5K to marathon
-  - User reports pain, tightness, or discomfort in the lower body during or after running
+  - "User shares a training screenshot from a GPS watch or running app (detail page, progress report, or training calendar) and requests session analysis"
+  - "User requests a training plan, weekly schedule, or workout recommendation for a specific race distance (5K to marathon)"
+  - "User asks about pace calculation, goal pacing, or fitness level estimation from a recent race result"
+  - "User wants post-race analysis or pre-race strategy guidance for a specific race"
+  - "User asks about warm-up routines, strength training, nutrition, recovery, heart-rate zones, running form, or gear for endurance running"
+  - "User discusses race preparation, season goals, or training periodization for distances from 5K to marathon"
+  - "User reports pain, tightness, or discomfort in the lower body during or after running (non-diagnostic risk screening only; advise seeing a doctor for persistent or severe symptoms)"
+not_for:
+  - "Medical diagnosis or treatment of injuries — this skill provides non-diagnostic risk screening only"
+  - "Training advice for non-running sports or general fitness without running-specific context"
+  - "Real-time coaching during a run or race"
 metadata:
   openclaw:
     tags:
