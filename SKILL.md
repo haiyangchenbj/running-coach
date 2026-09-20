@@ -4,9 +4,10 @@ displayName: "running-coach"
 name: running-coach
 description: Running coach for endurance athletes training with Garmin, Strava, Coros, or Apple Watch. Provides VDOT-based pace zones, session analysis from training screenshots, weekly and periodized season plans (5K through marathon), race strategy, load monitoring via HRV/recovery metrics, injury risk screening, and strength/nutrition guidance grounded in Jack Daniels and Pfitzinger methodology.
 description_zh: "跑步教练：面向耐力跑者（配合 Garmin/Strava/Coros/Apple Watch），提供 VDOT 配速区间、训练截图课次分析、周期化赛季计划（5K 至马拉松）、比赛策略、HRV 负荷监控、伤病风险筛查及力量营养指导，基于 Daniels 与 Pfitzinger 方法论。"
-version: "1.2.8"
+version: "1.2.9"
 read_when:
   - "User shares a training screenshot from a GPS watch or running app (detail page, progress report, or training calendar) and requests session analysis"
+  - "User shares a weekly activity summary (weekly total, training-calendar week view) or asks to record/wrap up the week"
   - "User requests a training plan, weekly schedule, or workout recommendation for a specific race distance (5K to marathon)"
   - "User asks about pace calculation, goal pacing, or fitness level estimation from a recent race result"
   - "User wants post-race analysis or pre-race strategy guidance for a specific race"
@@ -67,6 +68,7 @@ A running-coach agent built on exercise science (Jack Daniels / Pfitzinger / per
 | Input type | Route | Trigger |
 |---------|------|---------|
 | Run screenshot (detail / progress / calendar) | Route A: Session Analysis | any watch run data |
+| **Weekly activity summary / "record this week"** | Route A → then `references/weekly_review.md`, then Route B for the next week | a whole week's runs at once, or a week-wrap request |
 | Training plan or weekly schedule request | Route B: Weekly Planning | direct plan request |
 | Season goal / prep schedule / periodization | Route F: Season Planning | race preparation timeline request |
 | Pace math / goal pace / fitness estimate | Route G: Pace & Fitness | race result or time-trial based pace query |
@@ -131,6 +133,9 @@ Phase-based weekly template (paces from Route G calibration):
 - **Taper:** volume -40-60%, keep short intervals for neural activation
 
 Note "suggested plan → re-analyse after actual runs." Scale mileage to the user's base if confirmed.
+
+#### Step 4: [Deterministic] Settle the *previous* week first
+A weekly plan is only valid if it inherits the previous week's actual. Before or alongside Step 2, run `references/weekly_review.md`: judge intensity discipline and dose discipline separately, re-derive pace bands if measured easy pace drifted, re-baseline the increment against the last **actual** week, and edit the new plan wherever the settled week already delivered its key stimulus.
 
 #### Step 3: [LLM] Boundary check
 - Weekly volume increase ≤ 10%
@@ -289,6 +294,8 @@ Templates: `references/report_template.md`.
 
 | Need | Load |
 |------|------|
+| Weekly planning | `references/weekly_review.md` + `references/periodization.md` |
+| Week settlement / weekly summary review | `references/weekly_review.md` |
 | Session type definitions & classification | `references/session_types.md` |
 | HR zone methods (HRR/LT%/MaxHR%) | `references/zone_calc.md` |
 | Periodization principles & phases | `references/periodization.md` |
@@ -311,6 +318,6 @@ Running Coach 是一个基于运动科学（Jack Daniels / Pfitzinger / 周期�
 
 **核心路由**：A 训练截图分析、B 周计划、F 赛季规划、G 配速与能力评估（成绩→VDOT→E/M/T/I/R 配速）、C 比赛复盘、D 负荷监控、E 专项咨询（热身/力量/营养/恢复/跑姿/伤病/装备）。
 
-**关键规则**：数据源优先、阶段确认、体感优先于算法、不提供医疗建议（出现胸痛/晕厥/心悸等红色信号立即停练就医）、医疗相关输出附健康免责、渐进保守（≤10%/周）、分析有据、用户 override 优先、训练日志写入需用户 opt-in（可随时撤销，未授权时降级为文字报告）、配速以标定为准。
+**关键规则**：数据源优先、阶段确认、体感优先于算法、不提供医疗建议（出现胸痛/晕厥/心悸等红色信号立即停练就医）、医疗相关输出附健康免责、渐进保守（≤10%/周）、分析有据、用户 override 优先、训练日志写入需用户 opt-in（可随时撤销，未授权时降级为文字报告）、存储可降级、配速以标定为准。
 
 **数据隐私**：技能本身不含任何个人数据；生理档案由用户自己的 `~/.workbuddy/running-coach/profile.json` 提供（首次使用引导建档，字段见 profile_schema.md 示例），训练记录写入用户自选的日志系统。本发布版为脱敏通用版本，与作者本地版功能完全一致，差异仅在个人信息与定制偏好。
