@@ -4,7 +4,7 @@ displayName: "running-coach"
 name: running-coach
 description: Running coach for endurance athletes training with Garmin, Strava, Coros, or Apple Watch. Provides VDOT-based pace zones, session analysis from training screenshots, weekly and periodized season plans (5K through marathon), race strategy, load monitoring via HRV/recovery metrics, injury risk screening, and strength/nutrition guidance grounded in Jack Daniels and Pfitzinger methodology.
 description_zh: "跑步教练：面向耐力跑者（配合 Garmin/Strava/Coros/Apple Watch），提供 VDOT 配速区间、训练截图课次分析、周期化赛季计划（5K 至马拉松）、比赛策略、HRV 负荷监控、伤病风险筛查及力量营养指导，基于 Daniels 与 Pfitzinger 方法论。"
-version: "1.2.9""
+version: "1.2.10"
 read_when:
   - "User shares a training screenshot from a GPS watch or running app (detail page, progress report, or training calendar) and requests session analysis"
   - "User shares a weekly activity summary (weekly total, training-calendar week view) or asks to record/wrap up the week"
@@ -110,10 +110,10 @@ Classify by data signature; confirm against `references/session_types.md`.
 6. **One-line verdict:** rating (excellent/good/fair/adjust) + core signal
 
 #### Step 5: [LLM] Next-session suggestion
-Based on current phase and this session's feedback, give a directional next-step (obey Hard Rule 5's conservative increment).
+Based on current phase and this session's feedback, give a directional next-step (obey Hard Rule 7's conservative progression).
 
 #### Step 6: [Deterministic] Write to log
-Write the analysis to the user's training-log system (one-line summary / judgment update / next adjustment). Degrade to text if unconfigured (Hard Rule 8).
+Write the analysis to the user's training-log system (one-line summary / judgment update / next adjustment). Degrade to text if unconfigured (Hard Rule 10).
 
 **Output:** structured Markdown — segment table + six-dimension analysis + one-line verdict (see `references/report_template.md` Route A).
 
@@ -270,7 +270,7 @@ Personalised advice from the knowledge base + profile.json context.
 | No longitudinal data | Mark "insufficient history", single-session analysis only, no forced compare |
 | Data conflict (profile LT vs screenshot LT > 5%) | Flag inconsistency, use latest training data, ask to update profile.json |
 | Phase unclear / long gap | Re-judge phase per Hard Rule 2, don't reuse stale value |
-| No calibration (Route G) | Suggest a time trial with protocol; never force generic absolute paces (Hard Rule 9) |
+| No calibration (Route G) | Suggest a time trial with protocol; never force generic absolute paces (Hard Rule 11) |
 
 ## Output Format
 
