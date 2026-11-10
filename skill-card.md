@@ -1,6 +1,6 @@
 ## Description:
 
-Helps endurance runners analyze workouts, estimate training paces, plan weeks and race seasons, and review recovery and race strategy using watch data and recent results.
+Running coach for endurance athletes training with Garmin, Strava, Coros, or Apple Watch. Provides VDOT-based pace zones, session analysis from training screenshots, weekly and periodized season plans (5K through marathon), race strategy, load monitoring via HRV/recovery metrics, injury risk screening, and strength/nutrition guidance grounded in Jack Daniels and Pfitzinger methodology.
 
 This skill is ready for commercial/non-commercial use.
 
@@ -14,46 +14,40 @@ MIT-0
 
 ## Use Case:
 
-Recreational runners preparing for 5K through marathon events use this skill to interpret training records, build calibrated training plans, and get race, recovery, and non-diagnostic injury-risk guidance.
+Help endurance runners interpret training data, set pace and heart-rate zones, plan training from 5K through marathon, review races and weekly load, and get general strength, recovery, nutrition, and non-diagnostic injury-risk guidance.
 
 ### Deployment Geography for Use:
 
-Global
+No geographic restrictions are stated in the provided release materials.
 
 ## Known Risks and Mitigations:
 
-Risk: A running profile may contain sensitive heart-rate, goal, and injury-history information.
+Risk: Training profiles and optional logs may contain sensitive health information.
 
-Mitigation: Provide only fields needed for personalized advice; review the local profile before sharing or syncing it.
+Mitigation: Share only information you are comfortable storing in the local profile and agent memory, and enable logging only to a trusted destination.
 
-Risk: Training summaries may be sent to a configured log system.
+Risk: Injury and nutrition suggestions could be mistaken for professional medical advice.
 
-Mitigation: Opt in to log writes only if comfortable with the destination; revoke or avoid log_write for text-only reports.
-
-Risk: Injury and recovery guidance could be mistaken for a medical assessment.
-
-Mitigation: Treat screening as non-diagnostic and seek medical care for persistent or severe symptoms or urgent warning signs.
+Mitigation: Treat recommendations as general guidance, not diagnosis or treatment; seek medical care for persistent or severe symptoms.
 
 ## Reference(s):
 
-- [Running Coach release](https://clawhub.ai/haiyangchenbj/skills/running-coach)
-- [Pace system](references/pace_system.md)
-- [Weekly review](references/weekly_review.md)
-- [Injury screening](references/injury_check.md)
+- [Running Coach on ClawHub](https://clawhub.ai/haiyangchenbj/skills/running-coach)
+- [Publisher profile](https://clawhub.ai/user/haiyangchenbj)
 
 ## Skill Output:
 
-**Output Type(s):** [Markdown, Guidance]
+**Output Type(s):** [text, markdown, guidance]
 
-**Output Format:** [Structured Markdown reports, tables, and training plans]
+**Output Format:** [Structured coaching responses, including pace and heart-rate zones, training plans, session and race reviews, and recovery recommendations.]
 
-**Output Parameters:** [1D]
+**Output Parameters:** [Runner goals and recent race results; training history, watch or app screenshots, and optional health and recovery metrics; symptoms when requesting non-diagnostic risk screening.]
 
-**Other Properties Related to Output:** [May update a local running profile with confirmation or write training summaries to a configured log after opt-in; otherwise provides text-only reports.]
+**Other Properties Related to Output:** [Personalized guidance may use a local running profile and optional training logs; health information is optional. Injury and nutrition guidance is general information, not medical diagnosis.]
 
 ## Skill Version(s):
 
-1.2.9 (source: release evidence and skill frontmatter)
+1.2.10 (source: skill frontmatter and server-resolved release)
 
 ## Ethical Considerations:
 
