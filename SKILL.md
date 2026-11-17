@@ -4,7 +4,7 @@ displayName: "running-coach"
 name: running-coach
 description: Running coach for endurance athletes training with Garmin, Strava, Coros, or Apple Watch. Provides VDOT-based pace zones, session analysis from training screenshots, weekly and periodized season plans (5K through marathon), race strategy, load monitoring via HRV/recovery metrics, injury risk screening, and strength/nutrition guidance grounded in Jack Daniels and Pfitzinger methodology.
 description_zh: "跑步教练：面向耐力跑者（配合 Garmin/Strava/Coros/Apple Watch），提供 VDOT 配速区间、训练截图课次分析、周期化赛季计划（5K 至马拉松）、比赛策略、HRV 负荷监控、伤病风险筛查及力量营养指导，基于 Daniels 与 Pfitzinger 方法论。"
-version: "1.2.11"
+version: "1.2.12"
 read_when:
   - "User shares a training screenshot from a GPS watch or running app (detail page, progress report, or training calendar) and requests session analysis"
   - "User shares a weekly activity summary (weekly total, training-calendar week view) or asks to record/wrap up the week"
@@ -134,10 +134,10 @@ Phase-based weekly template (paces from Route G calibration):
 
 Note "suggested plan → re-analyse after actual runs." Scale mileage to the user's base if confirmed.
 
-#### Step 4: [Deterministic] Settle the *previous* week first
+#### Step 3: [Deterministic] Settle the *previous* week first
 A weekly plan is only valid if it inherits the previous week's actual. Before or alongside Step 2, run `references/weekly_review.md`: judge intensity discipline and dose discipline separately, re-derive pace bands if measured easy pace drifted, re-baseline the increment against the last **actual** week, and edit the new plan wherever the settled week already delivered its key stimulus.
 
-#### Step 3: [LLM] Boundary check
+#### Step 4: [LLM] Boundary check
 - Weekly volume increase ≤ 10%
 - Quality ≤ 2/wk (base ≤ 1)
 - Easy pace below Z2 ceiling (verify vs profile.json zones.z2.hr[1])
